@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title><%= name %> | <%= owner %></title>
+        <link rel="stylesheet" type="text/css" href="/index.css">
+        <script type="text/javascript" src="/jquery-3.3.1.min.js"></script>
+    </head>
+    <body>
+        <div class="cdn--center">
+            <h1>
+                <%= owner %> - <%= name %>    
+            </h1>
+            <div class="cdn--dropper">
+                <span class="cdn--drop--btn">Choose files</span>
+                <span class="cdn--drop--msg cdn--drop--num">or drag and drop files here</span>
+                <input class="cdn--drop--input" type="file" multiple>
+            </div>
+            <div class="cdn--input--group">
+                <input type="text" id="user">
+                <label for="user">Username</label>
+            </div>
+            <div class="cdn--input--group">
+                <input type="password" id="pass">
+                <label for="pass">Password</label>
+            </div>
+            <center>
+                <button id="submit" class="cdn--sub--btn">Submit</button>
+            </center>
+        </div>
+        <div class="cdn--bottom">
+            <p>
+                Copyright &copy; <a href="<%= web %>"><%= name %></a>
+            </p>
+        </div>
+        <script type="text/javascript" src="/index.js"></script>
+    </body>
+</html>
