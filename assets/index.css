@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css?family=Jura');
+
+*, body { font-family:   'Jura', sans-serif; }
+
+body {
+    min-width:           200px;
+    margin:              0px;
+    width:               100%;
+    height:              100%;
+    background:          linear-gradient(to bottom, #E0E0E0 0%, #FFF 100%);
+}
+
+.cdn--center {
+    position:            absolute;
+    left:                50%;
+    top:                 50%;
+    -webkit-transform:   translate(-50%, -50%);
+    transform:           translate(-50%, -50%);
+}
+
+.cdn--bottom {
+    width:               100%;
+    text-align:          center;
+    bottom:              5px;
+    position:            absolute;
+}
+
+.cdn--dropper {
+    border:              1px dashed rgba(0, 0, 0, 0.4);
+    border-radius:       3px;
+    position:            relative;
+    width:               450px;
+    max-width:           100%;
+    margin:              0 auto;
+    padding:             26px 20px 30px;
+    -webkit-transition:  0.2s;
+    transition:          0.2s;
+}
+
+.cdn--dropper.is-active { background-color: rgba(0, 0, 0, 0.05); }
+
+.cdn--drop--btn {
+    background-color:    rgba(0, 0, 0, 0.04);
+    border:              1px solid rgba(0, 0, 0, 0.1);
+    border-radius:       3px;
+    padding:             8px 15px;
+    margin-right:        8px;
+    font-size:           12px;
+    text-transform:      uppercase;
+}
+
+.cdn--drop--msg {
+    font-size:           small;
+    font-weight:         300;
+    white-space:         nowrap;
+    overflow:            hidden;
+    text-overflow:       ellipsis;
+    display:             inline-block;
+    max-width:           calc(100% - 130px);
+    vertical-align:      middle;
+}
+
+.cdn--drop--input {
+    position:            absolute;
+    left:                0;
+    top:                 0;
+    height:              100%;
+    width:               100%;
+    cursor:              pointer;
+    opacity:             0;
+}
+
+.cdn--drop--input:focus { outline: none; }
+
+.cdn--input--group {
+    position:            relative;
+    padding-top:         20px;
+    margin-top:          20px;
+}
+
+.cdn--input--group:after {
+    content:             "";
+    display:             table;
+    clear:               both;
+}
+
+.cdn--input--group input {
+    border:              none;
+    border-bottom:       solid 1px #CCC;
+    width:               100%;
+    padding:             10px 0;
+    transition:          border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cdn--input--group input:focus {
+    outline:             none;
+    border-color:        #000;
+    box-shadow:          0 1px 0 0 #000;
+}
+
+.cdn--input--group label {
+    position:            absolute;
+    top:                 30px;
+    left:                0;
+    color:               #AAA;
+    font-weight:         300;
+    transition:          transform 0.2s ease, color 0.2s ease;
+}
+
+.cdn--input--group label:hover { cursor: text; }
+.cdn--input--group input:focus + label { color: #000; }
+
+.cdn--input--group input:focus + label,
+.cdn--input--group input.active + label { transform: translateY(-30px); }
+
+.cdn--sub--btn{
+    padding:             0 20px;
+    height:              50px;
+    line-height:         50px;
+    border-radius:       4px;
+    color:               #000;
+    border:              0;
+    outline:             0;
+    text-align:          center;
+    transition:          .2s ease-out;
+    cursor:              pointer;
+    overflow:            hidden;
+    position:            relative;
+    text-transform:      uppercase;
+    -webkit-user-select: none;
+    -moz-user-select:    none;
+    -ms-user-select:     none;
+    user-select:         none;
+    box-shadow:          0 2px 2px 0 rgba(0,0,0,0.14),0 1px 5px 0 rgba(0, 0, 0, 0.12),0 3px 1px -2px rgba(0, 0, 0, 0.2);
+    background-color:    #AAA;
+    margin-top:          50px;
+}
+
+.cdn--sub--btn:hover{
+    box-shadow:          0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
+    background-color:    lighten(#CCC, 2);
+}
+
+.cdn--sub--btn:before {
+    content:             "";
+    position:            absolute;
+    display:             inline-block;
+    vertical-align:      middle;
+    z-index:             1;
+    will-change:         opacity, transform;
+    background-color:    rgba(236, 240, 241, .3);
+    top:                 50%;
+    left:                50%;
+    border-radius:       100%;
+    width:               0;
+    padding-top:         0;
+    transform:           translate(-50%, -50%);
+    -webkit-transform:   translate(-50%, -50%);
+    -moz-transform:      translate(-50%, -50%);
+    -ms-transform:       translate(-50%, -50%);
+    -o-transform:        translate(-50%, -50%);
+}
+
+.cdn--sub--btn:active:before {
+    width:               120%;
+    padding-top:         120%;
+    transition:          width .2s ease-out, padding-top .2s ease-out;
+}
