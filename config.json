@@ -1,0 +1,10 @@
+{
+    "server": {
+        "port": 1337,
+        "meta": {
+            "application_name": "Static CDN",
+            "owner": "NullDev",
+            "website": "https://nulldev.org"
+        }
+    }
+}
