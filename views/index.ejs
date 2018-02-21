@@ -13,22 +13,24 @@
             <h1>
                 <%= owner %> - <%= name %>    
             </h1>
-            <div class="cdn--dropper">
-                <span class="cdn--drop--btn">Choose files</span>
-                <span class="cdn--drop--msg cdn--drop--num">or drag and drop files here</span>
-                <input class="cdn--drop--input" type="file" multiple>
-            </div>
-            <div class="cdn--input--group">
-                <input type="text" id="user">
-                <label for="user">Username</label>
-            </div>
-            <div class="cdn--input--group">
-                <input type="password" id="pass">
-                <label for="pass">Password</label>
-            </div>
-            <center>
-                <button id="submit" class="cdn--sub--btn">Submit</button>
-            </center>
+            <form>
+                <div class="cdn--dropper">
+                    <span class="cdn--drop--btn">Choose files</span>
+                    <span class="cdn--drop--msg cdn--drop--num">or drag and drop files here</span>
+                    <input class="cdn--drop--input" type="file" multiple>
+                </div>
+                <div class="cdn--input--group">
+                    <input autocomplete="username" type="text" id="user">
+                    <label for="user">Username</label>
+                </div>
+                <div class="cdn--input--group">
+                    <input autocomplete="current-password" type="password" id="pass">
+                    <label for="pass">Password</label>
+                </div>
+                <center>
+                    <button id="submit" class="cdn--sub--btn">Submit</button>
+                </center>
+            </form>
         </div>
         <div class="cdn--bottom">
             <p>
