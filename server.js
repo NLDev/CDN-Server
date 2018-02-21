@@ -12,6 +12,7 @@ let path    = require("path");
 let fs      = require("fs");
 let bParser = require("body-parser");
 let favicon = require("serve-favicon");
+let formid  = require("formidable");
 let mOver   = require("method-override");
 
 let log     = require("./api/logger");
@@ -50,6 +51,24 @@ app.get("/", function(req, res){
     log("Served " + req.url + " for " + getIP(req));
 });
 
+app.post("/upload", function(req, res){
+    let form = new formid.IncomingForm();
+    let filename = null;
+    form.multiples = true;
+    form.uploadDir = path.join(__dirname, "/DATA");
+    form.on("file", function(field, file){ 
+        filename = file.name;
+        log("Server received file: " + filename);
+        fs.rename(file.path, path.join(form.uploadDir, filename), (error) => { if (error) log("Error while moving file \"" + filename + "\": " + error) }); 
+    });
+    form.on("error", function(err){ log("Error while uploading: " + err); });
+    form.on("end", function(){ 
+        log("Sucessfully uploaded \"" + filename + "\"");
+        res.end("success"); 
+    });
+    form.parse(req);
+});
+
 app.get("*", function(req, res){ render404(req, res); });
 
 function render404(request, response){
@@ -58,4 +77,4 @@ function render404(request, response){
     log("Threw 404 for " + getIP(request) + " on route " + request.url, true);
 }
 
-app.listen(port, err => (err ? log(`Error on port ${port}`, true) : log(`Listening on port ${port}...`)));
+app.listen(port, err => (err ? log(`Error on port ${port}: ${err}`, true) : log(`Listening on port ${port}...`)));
