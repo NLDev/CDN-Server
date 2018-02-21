@@ -133,7 +133,7 @@ body {
     user-select:         none;
     box-shadow:          0 2px 2px 0 rgba(0,0,0,0.14),0 1px 5px 0 rgba(0, 0, 0, 0.12),0 3px 1px -2px rgba(0, 0, 0, 0.2);
     background-color:    #AAA;
-    margin-top:          50px;
+    margin-top:          10px;
 }
 
 .cdn--sub--btn:hover{
@@ -167,7 +167,7 @@ body {
     transition:          width .2s ease-out, padding-top .2s ease-out;
 }
 
-.cdn--status { text-shadow: 1.5px 1.5px #000; }
+.cdn--status { text-shadow: 1px 1px #000; }
 
 .cdn--status--success { color: #4BC629; }
 .cdn--status--failure { color: #C62929; }
