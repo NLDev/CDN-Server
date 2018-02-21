@@ -1,6 +1,8 @@
 var $fileInput = $(".cdn--drop--input");
 var $droparea  = $(".cdn--dropper");
 
+var noop = () => {};
+
 $fileInput.on("dragenter focus click", function() { $droparea.addClass("is-active");    });
 $fileInput.on("dragleave blur drop",   function() { $droparea.removeClass("is-active"); });
 
@@ -27,11 +29,18 @@ $("#submit").on("click", function(){
             processData: false,
             contentType: false,
             success: function(data){
-                //console.log('upload successful!\n' + data);
+                $("#status").removeClass("cdn--status--failure");
+                $("#status").addClass("cdn--status--success");
+                $("#status").text("Upload successful!");
+            },
+            error: function(error){
+                $("#status").removeClass("cdn--status--success");
+                $("#status").addClass("cdn--status--failure");
+                $("#status").text("Upload failed!");
             },
             xhr: function() {
                 var xhr = new XMLHttpRequest();
-                xhr.upload.addEventListener("progress", function(evt) {  }, false);
+                xhr.upload.addEventListener("progress", function(evt) { noop(); }, false);
                 return xhr;
             }
         });
