@@ -166,3 +166,8 @@ body {
     padding-top:         120%;
     transition:          width .2s ease-out, padding-top .2s ease-out;
 }
+
+.cdn--status { text-shadow: 1.5px 1.5px #000; }
+
+.cdn--status--success { color: #4BC629; }
+.cdn--status--failure { color: #C62929; }
