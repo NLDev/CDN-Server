@@ -10,3 +10,30 @@ $fileInput.on("change", function() {
     if (filesCount === 1) $textContainer.text($(this).val().split("\\").pop());
     else $textContainer.text(filesCount + " files selected");
 });
+
+$("#submit").on("click", function(){
+    var files = $(".cdn--drop--input").get(0).files;
+
+    if (files.length > 0){
+        var formData = new FormData();
+        for (var i = 0; i < files.length; i++) {
+            var file = files[i];
+            formData.append("uploads[]", file, file.name);
+        }
+        $.ajax({
+            url: "/upload",
+            type: "POST",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(data){
+                //console.log('upload successful!\n' + data);
+            },
+            xhr: function() {
+                var xhr = new XMLHttpRequest();
+                xhr.upload.addEventListener("progress", function(evt) {  }, false);
+                return xhr;
+            }
+        });
+    }
+});
