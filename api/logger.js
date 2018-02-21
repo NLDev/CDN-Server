@@ -6,9 +6,9 @@
 //----------------------------//
 ////////////////////////////////
 
-var log = function(txt, err){
-    var date = new Date();
-    var hour = date.getHours(),
+let log = function(txt, err){
+    const date = new Date();
+    let hour = date.getHours(),
         min  = date.getMinutes(),
         sec  = date.getSeconds();
 
@@ -16,7 +16,7 @@ var log = function(txt, err){
     min   = (min  < 10 ? "0" : "") + min;
     sec   = (sec  < 10 ? "0" : "") + sec;
 
-    var head = (err ? "[ERROR]" : "[INFO] ");
+    let head = (err ? "[ERROR]" : "[INFO] ");
 
     console.log(head + " [" + hour + ":" + min + ":" + sec + "] - " + txt);
 };
