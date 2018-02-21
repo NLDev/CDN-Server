@@ -22,14 +22,14 @@ const defaults = {
     }
 }
 
-var reset = function(){ fs.writeFileSync(path, defaults, function(err) { err ? log("Could not reset config: " + err, true) : log("Reset Config"); }); };
+let reset = function(){ fs.writeFileSync(path, defaults, function(err) { err ? log("Could not reset config: " + err, true) : log("Reset Config"); }); };
 
-var getconfig = function(){
+let getconfig = function(){
     if (!fs.existsSync(path)){
         log("Config does not exist!", true);
         fs.writeFileSync(path, defaults, function(err) { err ? log("Could not create config: " + err, true) : log("Created Config"); });
     } 
-    var jsondata = require(path);
+    let jsondata = require(path);
     
     if (validateJSON(jsondata)) return JSON.parse(jsondata);
     else {
