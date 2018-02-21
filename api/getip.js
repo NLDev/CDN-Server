@@ -6,7 +6,7 @@
 //----------------------------//
 ////////////////////////////////
 
-var getIP = function(req){
+let getIP = function(req){
     return req.connection.remoteAddress        || 
            req.socket.remoteAddress            || 
            req.connection.socket.remoteAddress ||          
