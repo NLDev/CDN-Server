@@ -13,7 +13,14 @@ $fileInput.on("change", function() {
     else $textContainer.text(filesCount + " files selected");
 });
 
-$("#submit").on("click", function(){
+var fail = function(){
+    $("#status").removeClass("cdn--status--success");
+    $("#status").addClass("cdn--status--failure");
+    $("#status").text("Upload failed!");
+};
+
+$("#submit").on("click", function(e){
+    e.preventDefault();
     var files = $(".cdn--drop--input").get(0).files;
 
     if (files.length > 0){
@@ -29,20 +36,15 @@ $("#submit").on("click", function(){
             processData: false,
             contentType: false,
             success: function(data){
+                var $infile = $(".cdn--drop--input");
                 $("#status").removeClass("cdn--status--failure");
                 $("#status").addClass("cdn--status--success");
                 $("#status").text("Upload successful!");
+                $infile.replaceWith($infile = $infile.clone(true));
             },
-            error: function(error){
-                $("#status").removeClass("cdn--status--success");
-                $("#status").addClass("cdn--status--failure");
-                $("#status").text("Upload failed!");
-            },
-            xhr: function() {
-                var xhr = new XMLHttpRequest();
-                xhr.upload.addEventListener("progress", function(evt) { noop(); }, false);
-                return xhr;
-            }
+            error: function(error){ fail(); }
         });
+        return false;
     }
+    else fail();
 });
