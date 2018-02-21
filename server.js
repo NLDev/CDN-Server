@@ -16,6 +16,7 @@ let formid  = require("formidable");
 let mOver   = require("method-override");
 
 let log     = require("./api/logger");
+let init    = require("./api/init");
 let getIP   = require("./api/getip");
 let config  = require("./api/configurator");
 let routes  = require("./routes");
@@ -77,4 +78,5 @@ function render404(request, response){
     log("Threw 404 for " + getIP(request) + " on route " + request.url, true);
 }
 
+init();
 app.listen(port, err => (err ? log(`Error on port ${port}: ${err}`, true) : log(`Listening on port ${port}...`)));
