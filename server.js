@@ -49,7 +49,7 @@ app.use(express.static(path.join(__dirname, "assets")));
 
 app.get("/", function(req, res){
     routes.index(req, res);
-    log("Served " + req.url + " for " + getIP(req));
+    //log("Served " + req.url + " for " + getIP(req));
 });
 
 app.post("/upload", function(req, res){
