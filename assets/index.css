@@ -113,58 +113,26 @@ body {
 .cdn--input--group input:focus + label,
 .cdn--input--group input.active + label { transform: translateY(-30px); }
 
-.cdn--sub--btn{
-    padding:             0 20px;
-    height:              50px;
-    line-height:         50px;
-    border-radius:       4px;
-    color:               #000;
-    border:              0;
-    outline:             0;
+.cdn--sub--btn {
+    -webkit-transition:  all 200ms cubic-bezier(.39,.50,.15,1.36);
+    -moz-transition:     all 200ms cubic-bezier(.39,.50,.15,1.36);
+    -ms-transition:      all 200ms cubic-bezier(.39,.50,.15,1.36);
+    -o-transition:       all 200ms cubic-bezier(.39,.50,.15,1.36);
+    transition:          all 200ms cubic-bezier(.39,.50,.15,1.36);
+    display:             block;
+    margin:              20px auto;
+    max-width:           100%;
     text-align:          center;
-    transition:          .2s ease-out;
-    cursor:              pointer;
-    overflow:            hidden;
-    position:            relative;
-    text-transform:      uppercase;
-    -webkit-user-select: none;
-    -moz-user-select:    none;
-    -ms-user-select:     none;
-    user-select:         none;
-    box-shadow:          0 2px 2px 0 rgba(0,0,0,0.14),0 1px 5px 0 rgba(0, 0, 0, 0.12),0 3px 1px -2px rgba(0, 0, 0, 0.2);
-    background-color:    #AAA;
-    margin-top:          10px;
+    text-decoration:     none;
+    border-radius:       4px;
+    padding:             10px 30px;
+    color:               #000;
+    box-shadow:          #000 0 0 0 2px inset;
 }
 
-.cdn--sub--btn:hover{
-    box-shadow:          0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
-    background-color:    lighten(#CCC, 2);
-}
-
-.cdn--sub--btn:before {
-    content:             "";
-    position:            absolute;
-    display:             inline-block;
-    vertical-align:      middle;
-    z-index:             1;
-    will-change:         opacity, transform;
-    background-color:    rgba(236, 240, 241, .3);
-    top:                 50%;
-    left:                50%;
-    border-radius:       100%;
-    width:               0;
-    padding-top:         0;
-    transform:           translate(-50%, -50%);
-    -webkit-transform:   translate(-50%, -50%);
-    -moz-transform:      translate(-50%, -50%);
-    -ms-transform:       translate(-50%, -50%);
-    -o-transform:        translate(-50%, -50%);
-}
-
-.cdn--sub--btn:active:before {
-    width:               120%;
-    padding-top:         120%;
-    transition:          width .2s ease-out, padding-top .2s ease-out;
+.cdn--sub--btn:hover {
+    color:               #FFF;
+    box-shadow:          #000 0 0 0 40px inset;
 }
 
 .cdn--status { text-shadow: 1px 1px #000; }
